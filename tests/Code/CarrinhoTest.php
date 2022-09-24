@@ -70,10 +70,7 @@ class CarrinhoTest extends TestCase
 //        $produto->setName('Produto 1');
 //        $produto->setPrice('19.99');
 //        $produto->setSlug('produto-1');
-        $produtoStub = $this->createMock(Produto::class);
-        $produtoStub->method('getName')->willReturn('Produto 1');
-        $produtoStub->method('getPrice')->willReturn(19.99);
-        $produtoStub->method('getSlug')->willReturn('produto-1');
+        $produtoStub = $this->getStubProduto();
 
         $carrinho = $this->carrinho;
         $carrinho->addProduto($produtoStub);
@@ -118,5 +115,29 @@ class CarrinhoTest extends TestCase
 //        }
 
         $this->assertTrue(true);
+    }
+
+    public function testSeLogESalvoQuandoInformadoParaAAdicaoDeProduto()
+    {
+        $carrinho = new Carrinho();
+        $logMock = $this->getMockBuilder(Log::class)
+            ->Methods('log')
+            ->getMock();
+
+        $logMock->expects($this->once())
+            ->method('log')
+            ->with('Adicionando Produto no Carrinho');
+
+        $carrinho->addProduto($this->getStubProduto(), $logMock);
+    }
+
+    private function getStubProduto()
+    {
+        $produtoStub = $this->createMock(Produto::class);
+        $produtoStub->method('getName')->willReturn('Produto 1');
+        $produtoStub->method('getPrice')->willReturn(19.99);
+        $produtoStub->method('getSlug')->willReturn('produto-1');
+
+        return $produtoStub;
     }
 }
