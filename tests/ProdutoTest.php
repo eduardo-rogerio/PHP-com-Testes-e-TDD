@@ -18,15 +18,15 @@ class ProdutoTest extends TestCase
         unset($this->produto);
     }
 
-    public static function setUpBeforeClass(): void
-    {
-        print __METHOD__;
-    }
-
-    public static function tearDownAfterClass(): void
-    {
-        print __METHOD__;
-    }
+//    public static function setUpBeforeClass(): void
+//    {
+//        print __METHOD__;
+//    }
+//
+//    public static function tearDownAfterClass(): void
+//    {
+//        print __METHOD__;
+//    }
 
     public function  testSeONomeDoProdutoESetadoCorretamente()
     {
@@ -50,4 +50,15 @@ class ProdutoTest extends TestCase
         $this->assertEquals('produto-1',$produto->getSlug(),'Não são iguais');
     }
 
+    /**
+     * @expectedException\ InvalidArgumentException
+     * @expectedExceptionMessage Parâmetro inválido, informe um slug
+     */
+    public function testSeSetSlugLancaExceptionQuandoInformada()
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('Parâmetro inválido, informe um slug');
+        $product = $this->produto;
+        $product->setSlug('');
+    }
 }

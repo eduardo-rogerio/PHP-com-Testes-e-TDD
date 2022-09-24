@@ -98,4 +98,21 @@ class CarrinhoTest extends TestCase
         $this->assertEquals(2,$carrinho->getTotalProdutos());
         $this->assertEquals(39.98,$carrinho->getTotalCompra());
     }
+
+    public function testIncompleto()
+    {
+        $this->assertTrue(true);
+        $this->markTestIncomplete('Teste não está completo!');
+    }
+    /**
+    * @requires PHP == 5.3
+     */
+    public function testSeFeatureEspecificaParaVersao53PHPTrabalhaDeFormaEsperada()
+    {
+//        if (PHP_VERSION !=7){
+//            $this->markTestSkipped('Este teste só roda para vesão abaixo do PHP 5.3');
+//        }
+
+        $this->assertTrue(true);
+    }
 }

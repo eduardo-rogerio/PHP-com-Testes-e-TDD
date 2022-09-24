@@ -53,6 +53,9 @@ class Produto
      */
     public function setSlug($slug)
     {
+        if (!$slug){
+            throw new \InvalidArgumentException('Parâmetro inválido, informe um slug');
+        }
         $this->slug = $slug;
     }
 
