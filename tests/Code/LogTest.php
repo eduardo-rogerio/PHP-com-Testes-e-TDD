@@ -15,7 +15,7 @@ class LogTest extends TestCase
     {
         $log = new Log();
 
-        $this->assertEquals('Logando dados no Sistema',
+        $this->assertEquals('Logando dados no sistema: Testando Save de Log no Sistema',
             $log->log('Testando Save de Log no Sistema'));
     }
 }
