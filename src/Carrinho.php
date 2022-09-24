@@ -9,6 +9,7 @@ class Carrinho
     public function addProduto($produto, Log $log=null)
     {
         $this->produtos[] = $produto;
+        $log->log('Adicionando produto no carrinho');
     }
 
     public function getProdutos()
