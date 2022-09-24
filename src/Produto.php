@@ -7,6 +7,7 @@ class Produto
     private $name;
     private $price;
     private $slug;
+
     /**
      * @return mixed
      */

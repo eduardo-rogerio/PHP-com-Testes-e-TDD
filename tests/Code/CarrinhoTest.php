@@ -9,6 +9,20 @@ class CarrinhoTest extends TestCase
     //Manipula varios produtos
     //Visualizar Produtos
     //Total de produtos | Total compra
+    private $carrinho;
+    private $produto;
+
+    public function setUp(): void
+    {
+        $this->carrinho = new Carrinho();
+        $this->produto = new Produto();
+    }
+
+    public function tearDown(): void
+    {
+        unset($this->carrinho);
+        unset($this->produto);
+    }
 
     public function testClasseCarrinhoExiste()
     {
@@ -19,17 +33,17 @@ class CarrinhoTest extends TestCase
 
     public function testAdicaoDeProdutosNoCarrinho()
     {
-        $produto = new Produto();
+        $produto = $this->produto;
         $produto->setName('Produto 1');
         $produto->setPrice('19.99');
         $produto->setSlug('produto-1');
 
-        $produto2 = new Produto();
+        $produto2 = $this->produto;
         $produto2->setName('Produto 2');
         $produto2->setPrice('29.99');
         $produto2->setSlug('produto-2');
 
-        $carrinho = new Carrinho();
+        $carrinho = $this->carrinho;
         $carrinho->addProduto($produto);
         $carrinho->addProduto($produto2);
 
@@ -40,12 +54,12 @@ class CarrinhoTest extends TestCase
 
     public function testSeValoresDeProdutosNoCarrinhoEstaoCorretosConformePassado()
     {
-        $produto = new Produto();
+        $produto = $this->produto;
         $produto->setName('Produto 1');
         $produto->setPrice('19.99');
         $produto->setSlug('produto-1');
 
-        $carrinho = new Carrinho();
+        $carrinho = $this->carrinho;
         $carrinho->addProduto($produto);
 
         $this->assertEquals('Produto 1', $carrinho->getProdutos()[0]->getName());
@@ -55,17 +69,17 @@ class CarrinhoTest extends TestCase
 
     public function testSeTotalDeProdutosEValorDaCompraEstaoCorretos()
     {
-        $produto = new Produto();
+        $produto = $this->produto;
         $produto->setName('Produto 1');
         $produto->setPrice('19.99');
         $produto->setSlug('produto-1');
 
-        $produto2 = new Produto();
+        $produto2 =$this->produto;
         $produto2->setName('Produto 2');
         $produto2->setPrice('19.99');
         $produto2->setSlug('produto-2');
 
-        $carrinho = new Carrinho();
+        $carrinho = $this->carrinho;
         $carrinho->addProduto($produto);
         $carrinho->addProduto($produto2);
 
