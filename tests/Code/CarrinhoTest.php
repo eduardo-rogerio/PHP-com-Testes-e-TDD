@@ -121,12 +121,11 @@ class CarrinhoTest extends TestCase
     {
         $carrinho = new Carrinho();
         $logMock = $this->getMockBuilder(Log::class)
-            ->Methods('log')
             ->getMock();
 
         $logMock->expects($this->once())
             ->method('log')
-            ->with('Adicionando Produto no Carrinho');
+            ->with('Adicionando produto no carrinho');
 
         $carrinho->addProduto($this->getStubProduto(), $logMock);
     }
