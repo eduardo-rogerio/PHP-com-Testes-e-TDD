@@ -1,1 +1,1 @@
-{"version":1,"defects":{"CodeTests\\QueryBuilder\\SelectTest::testIfQueryBaseGenerateWithSuccess":4},"times":{"CodeTests\\QueryBuilder\\SelectTest::testIfQueryBaseGenerateWithSuccess":0.004}}
+{"version":1,"defects":{"CodeTests\\QueryBuilder\\SelectTest::testIfQueryBaseGenerateWithSuccess":3},"times":{"CodeTests\\QueryBuilder\\SelectTest::testIfQueryBaseGenerateWithSuccess":0.004}}

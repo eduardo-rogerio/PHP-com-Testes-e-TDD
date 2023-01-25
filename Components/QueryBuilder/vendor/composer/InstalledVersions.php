@@ -137,11 +137,11 @@ class InstalledVersions
     public static function getVersionRanges($packageName)
     {
         foreach (self::getInstalled() as $installed) {
-            if (! isset($installed['versions'][$packageName])) {
+            if (!isset($installed['versions'][$packageName])) {
                 continue;
             }
 
-            $ranges = [];
+            $ranges = array();
             if (isset($installed['versions'][$packageName]['pretty_version'])) {
                 $ranges[] = $installed['versions'][$packageName]['pretty_version'];
             }
@@ -168,11 +168,11 @@ class InstalledVersions
     public static function getVersion($packageName)
     {
         foreach (self::getInstalled() as $installed) {
-            if (! isset($installed['versions'][$packageName])) {
+            if (!isset($installed['versions'][$packageName])) {
                 continue;
             }
 
-            if (! isset($installed['versions'][$packageName]['version'])) {
+            if (!isset($installed['versions'][$packageName]['version'])) {
                 return null;
             }
 
@@ -189,11 +189,11 @@ class InstalledVersions
     public static function getPrettyVersion($packageName)
     {
         foreach (self::getInstalled() as $installed) {
-            if (! isset($installed['versions'][$packageName])) {
+            if (!isset($installed['versions'][$packageName])) {
                 continue;
             }
 
-            if (! isset($installed['versions'][$packageName]['pretty_version'])) {
+            if (!isset($installed['versions'][$packageName]['pretty_version'])) {
                 return null;
             }
 
@@ -210,11 +210,11 @@ class InstalledVersions
     public static function getReference($packageName)
     {
         foreach (self::getInstalled() as $installed) {
-            if (! isset($installed['versions'][$packageName])) {
+            if (!isset($installed['versions'][$packageName])) {
                 continue;
             }
 
-            if (! isset($installed['versions'][$packageName]['reference'])) {
+            if (!isset($installed['versions'][$packageName]['reference'])) {
                 return null;
             }
 
@@ -231,7 +231,7 @@ class InstalledVersions
     public static function getInstallPath($packageName)
     {
         foreach (self::getInstalled() as $installed) {
-            if (! isset($installed['versions'][$packageName])) {
+            if (!isset($installed['versions'][$packageName])) {
                 continue;
             }
 
@@ -255,9 +255,9 @@ class InstalledVersions
     /**
      * Returns the raw installed.php data for custom implementations
      *
+     * @deprecated Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.
      * @return array[]
      * @psalm-return array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}
-     * @deprecated Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.
      */
     public static function getRawData()
     {
@@ -321,7 +321,7 @@ class InstalledVersions
             self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegisteredLoaders');
         }
 
-        $installed = [];
+        $installed = array();
 
         if (self::$canGetVendors) {
             foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
@@ -342,7 +342,7 @@ class InstalledVersions
             if (substr(__DIR__, -8, 1) !== 'C') {
                 self::$installed = require __DIR__ . '/installed.php';
             } else {
-                self::$installed = [];
+                self::$installed = array();
             }
         }
         $installed[] = self::$installed;

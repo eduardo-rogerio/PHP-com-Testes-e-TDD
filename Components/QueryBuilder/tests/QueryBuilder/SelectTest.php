@@ -15,13 +15,13 @@ class SelectTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->select = new Select();
+        $this->select = new Select('products');
     }
 
     public function testIfQueryBaseGenerateWithSuccess()
     {
-        $query = $this->select('products');
+        $query = $this->select->getSql('products');
 
-        $this->assertEquals('SELECT * FROM products', $query->getSql);
+        $this->assertEquals('SELECT * FROM products', $query);
     }
 }
