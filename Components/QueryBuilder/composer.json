@@ -4,5 +4,15 @@
     },
     "config": {
         "bin-dir": "bin/"
+    },
+    "autoload": {
+        "psr-4": {
+            "Code\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeTests\\": "test/"
+        }
     }
 }

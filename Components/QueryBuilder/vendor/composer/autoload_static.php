@@ -16,6 +16,11 @@ class ComposerStaticInit7a7fe52035d566b7ef02f6c7047895c0
                 'Doctrine\\Instantiator\\' => 22,
                 'DeepCopy\\' => 9,
             ],
+        'C' =>
+            [
+                'Code\\' => 5,
+                'CodeTests\\' => 10,
+            ],
     ];
 
     public static $prefixDirsPsr4 = [
@@ -27,9 +32,17 @@ class ComposerStaticInit7a7fe52035d566b7ef02f6c7047895c0
             [
                 0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
             ],
+        'Code\\' =>
+            [
+                0 => __DIR__ . '/../..' . '/src',
+            ],
+        'CodeTests\\' =>
+            [
+                0 => __DIR__ . '/../..' . '/test',
+            ],
     ];
 
-    public static $classMap = [
+    public static $classMap = array(
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
@@ -616,7 +629,7 @@ class ComposerStaticInit7a7fe52035d566b7ef02f6c7047895c0
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
-    ];
+    );
 
     public static function getInitializer(ClassLoader $loader)
     {

@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/meus-primeiros-passos-com-testes/src" isTestSource="false" packagePrefix="Code\" />
       <sourceFolder url="file://$MODULE_DIR$/meus-primeiros-passos-com-testes/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Components/QueryBuilder/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Components/QueryBuilder/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/meus-primeiros-passos-com-testes/vendor/sebastian/version" />
       <excludeFolder url="file://$MODULE_DIR$/meus-primeiros-passos-com-testes/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/meus-primeiros-passos-com-testes/vendor/sebastian/type" />

@@ -8,4 +8,6 @@ $baseDir = dirname($vendorDir);
 return [
     'Doctrine\\Instantiator\\' => [$vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'],
     'DeepCopy\\' => [$vendorDir . '/myclabs/deep-copy/src/DeepCopy'],
+    'Code\\' => [$baseDir . '/src'],
+    'CodeTests\\' => [$baseDir . '/test'],
 ];
