@@ -51,6 +51,6 @@ class SelectTest extends \PHPUnit\Framework\TestCase
     public function testIfQueryIsGeneratedWithLimit()
     {
         $query = $this->select->limit(0, 30);
-        $this->assertEquals('SELECT * FROM products LIMIT 0, 15', $query->getSql());
+        $this->assertEquals('SELECT * FROM products LIMIT 0, 30', $query->getSql());
     }
 }

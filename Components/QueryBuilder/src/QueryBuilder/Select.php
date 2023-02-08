@@ -10,6 +10,8 @@ class Select
 
     private $orderBy;
 
+    private $limit;
+
     public function __construct($table)
     {
         $this->query = 'SELECT * FROM ' . $table;
@@ -35,10 +37,15 @@ class Select
         return $this;
     }
 
-    public function
+    public function limit($skip, $take)
+    {
+        $this->limit = ' LIMIT ' . $skip . ', ' . $take;
+
+        return $this;
+    }
 
     public function getSql()
-{
-    return $this->query . $this->where . $this->orderBy;
-}
+    {
+        return $this->query . $this->where . $this->orderBy . $this->limit;
+    }
 }
