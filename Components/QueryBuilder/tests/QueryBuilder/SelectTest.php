@@ -53,4 +53,14 @@ class SelectTest extends \PHPUnit\Framework\TestCase
         $query = $this->select->limit(0, 30);
         $this->assertEquals('SELECT * FROM products LIMIT 0, 30', $query->getSql());
     }
+
+    public function testIfQueryIsGenerateWithJoinsConditions()
+    {
+        $query = $this->select->join('INNER JOIN', 'colors', 'colors.product_id', '=', 'products.id');
+
+        $this->assertEquals(
+            'SELECT * FROM products INNER JOIN colors ON colors.product_id = products.id', $query->getSql()
+        );
+    }
+
 }

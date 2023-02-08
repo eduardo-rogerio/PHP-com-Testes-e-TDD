@@ -12,6 +12,8 @@ class Select
 
     private $limit;
 
+    private $join;
+
     public function __construct($table)
     {
         $this->query = 'SELECT * FROM ' . $table;
@@ -44,8 +46,19 @@ class Select
         return $this;
     }
 
+    public function join($joinType, $table, $foreingkey, $operator, $referenceColumn, $concat = 'AND')
+    {
+        if (! $this->join) {
+            $this->join .= ' ' . $joinType . ' ' . $table . ' ON ' . $foreingkey . ' ' . $operator . ' ' . $referenceColumn;
+        } else {
+            $this->join .= ' ' . $concat . ' ' . $foreingkey . ' ' . $operator . ' ' . $referenceColumn;
+        }
+
+        return $this;
+    }
+
     public function getSql()
     {
-        return $this->query . $this->where . $this->orderBy . $this->limit;
+        return $this->query . $this->join . $this->where . $this->orderBy . $this->limit;
     }
 }
