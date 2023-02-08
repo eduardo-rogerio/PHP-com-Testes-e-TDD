@@ -37,4 +37,20 @@ class SelectTest extends \PHPUnit\Framework\TestCase
             ->where('price', '>=', ':price');
         $this->assertEquals('SELECT * FROM products WHERE name = :name AND price >= :price', $query->getSql());
     }
+
+    public function testIfQueryIsGenerateWithOrderBy()
+    {
+        $query = $this->select->orderBy('name', 'DESC');
+
+        $this->assertEquals(
+            'SELECT * FROM products ORDER BY name DESC',
+            $query->getSql()
+        );
+    }
+
+    public function testIfQueryIsGeneratedWithLimit()
+    {
+        $query = $this->select->limit(0, 30);
+        $this->assertEquals('SELECT * FROM products LIMIT 0, 15', $query->getSql());
+    }
 }

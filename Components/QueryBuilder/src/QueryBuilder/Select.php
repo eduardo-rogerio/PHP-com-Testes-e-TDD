@@ -8,6 +8,8 @@ class Select
 
     private $where;
 
+    private $orderBy;
+
     public function __construct($table)
     {
         $this->query = 'SELECT * FROM ' . $table;
@@ -26,8 +28,17 @@ class Select
         return $this;
     }
 
-    public function getSql()
+    public function orderBy($field, $order)
     {
-        return $this->query . $this->where;
+        $this->orderBy = ' ORDER BY ' . $field . ' ' . $order;
+
+        return $this;
     }
+
+    public function
+
+    public function getSql()
+{
+    return $this->query . $this->where . $this->orderBy;
+}
 }
