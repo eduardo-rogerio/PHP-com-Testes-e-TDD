@@ -27,7 +27,14 @@ class SelectTest extends \PHPUnit\Framework\TestCase
 
     public function testIfQueryIsGenerateWithWhereConditions()
     {
-        $query = $this->select->where('name', '=', 'Produto 1');
+        $query = $this->select->where('name', '=', ':name');
         $this->assertEquals('SELECT * FROM products WHERE name = :name', $query->getSql());
+    }
+
+    public function testIfQueryAllowUsAddMoreConditionsInOurQueryWithWhere()
+    {
+        $query = $this->select->where('name', '=', ':name')
+            ->where('price', '>=', ':price');
+        $this->assertEquals('SELECT * FROM products WHERE name = :name AND price >= :price', $query->getSql());
     }
 }

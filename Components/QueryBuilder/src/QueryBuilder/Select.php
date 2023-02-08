@@ -6,20 +6,28 @@ class Select
 {
     private $query;
 
+    private $where;
+
     public function __construct($table)
     {
         $this->query = 'SELECT * FROM ' . $table;
     }
 
-    public function where($field, $operator)
+    public function where($field, $operator, $bind = null, $concat = 'AND')
     {
-        $this->query .= ' WHERE ' . $field . ' ' . $operator . ' :' . $field;
+        $bind = is_null($bind) ? ':' . $field : $bind;
+
+        if (! $this->where) {
+            $this->where .= ' WHERE ' . $field . ' ' . $operator . ' ' . $bind;
+        } else {
+            $this->where .= ' ' . $concat . ' ' . $field . ' ' . $operator . ' ' . $bind;
+        }
 
         return $this;
     }
 
     public function getSql()
     {
-        return $this->query;
+        return $this->query . $this->where;
     }
 }
