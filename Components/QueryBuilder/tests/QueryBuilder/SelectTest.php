@@ -63,4 +63,10 @@ class SelectTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    public function testIfQueryWithSelectedFieldsIsGenerateWitnSuccess()
+    {
+        $query = $this->select->select('name', 'price');
+
+        $this->assertEquals('SELECT name, price FROM products', $query->getSql());
+    }
 }
