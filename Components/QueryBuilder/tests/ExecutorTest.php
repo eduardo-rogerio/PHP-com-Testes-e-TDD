@@ -8,6 +8,8 @@ class ExecutorTest extends TestCase
 {
     private static $conn;
 
+    private static $executor;
+
     public static function setUpBeforeClass(): void
     {
         self::$conn = new \PDO('sqlite::memory');
@@ -20,11 +22,12 @@ class ExecutorTest extends TestCase
                 'updated_at' TIMESTAMP,  
             );
         ");
+
+        self::$executor = new Executor(self::$conn);
     }
 
     public static function tearDownAfterClass(): void
     {
         self::$conn->exec('DROP TABLE products');
     }
-
 }
