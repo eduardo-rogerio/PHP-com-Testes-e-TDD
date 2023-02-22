@@ -1,8 +1,8 @@
 <?php
 
-namespace QueryBuilder;
+namespace CodeTests\QueryBuilder\Query;
 
-use Code\QueryBuilder\Delete;
+use Code\QueryBuilder\Query\Delete;
 
 class DeleteTest extends \PHPUnit\Framework\TestCase
 {

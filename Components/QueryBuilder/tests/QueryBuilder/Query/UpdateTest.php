@@ -1,8 +1,8 @@
 <?php
 
-namespace QueryBuilder;
+namespace CodeTests\QueryBuilder\Query;
 
-use Code\QueryBuilder\Update;
+use Code\QueryBuilder\Query\Update;
 
 class UpdateTest extends \PHPUnit\Framework\TestCase
 {

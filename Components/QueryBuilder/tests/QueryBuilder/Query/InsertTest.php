@@ -1,8 +1,8 @@
 <?php
 
-namespace QueryBuilder;
+namespace CodeTests\QueryBuilder\Query;
 
-use Code\QueryBuilder\Insert;
+use Code\QueryBuilder\Query\Insert;
 
 class InsertTest extends \PHPUnit\Framework\TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeTests\QueryBuilder;
+namespace CodeTests\QueryBuilder\Query;
 
-use Code\QueryBuilder\Select;
+use Code\QueryBuilder\Query\Select;
 
 class SelectTest extends \PHPUnit\Framework\TestCase
 {
